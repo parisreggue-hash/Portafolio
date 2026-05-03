@@ -1,0 +1,17 @@
+export const t = (dark) => ({
+  bg:          dark ? '#080808'                       : '#f5f0e8',
+  surface:     dark ? 'rgba(255,255,255,0.03)'       : 'rgba(0,0,0,0.03)',
+  surface2:    dark ? 'rgba(255,255,255,0.06)'       : 'rgba(0,0,0,0.05)',
+  border:      dark ? 'rgba(255,255,255,0.07)'       : 'rgba(0,0,0,0.08)',
+  border2:     dark ? 'rgba(255,255,255,0.12)'       : 'rgba(0,0,0,0.12)',
+  text:        dark ? '#ffffff'                      : '#111111',
+  textMuted:   dark ? 'rgba(255,255,255,0.4)'        : 'rgba(0,0,0,0.45)',
+  aboutText:   dark ? 'rgba(255,255,255,0.72)'       : 'rgba(17,17,17,0.78)',
+  textFaint:   dark ? 'rgba(255,255,255,0.15)'       : 'rgba(0,0,0,0.15)',
+  accent:      '#12c352',
+  accentGlow:  dark ? '0 0 60px rgba(18,195,82,0.35)' : 'none',
+  btnGlass:    dark ? 'rgba(255,255,255,0.05)'       : 'rgba(0,0,0,0.04)',
+  btnBorder:   dark ? 'rgba(255,255,255,0.1)'        : 'rgba(0,0,0,0.1)',
+  btnText:     dark ? 'rgba(255,255,255,0.55)'       : 'rgba(0,0,0,0.55)',
+  divider:     dark ? 'rgba(255,255,255,0.05)'       : 'rgba(0,0,0,0.07)',
+})
