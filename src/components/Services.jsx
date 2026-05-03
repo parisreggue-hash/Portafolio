@@ -58,7 +58,7 @@ export default function Services({ darkMode }) {
                 className="font-display font-black mt-2 transition-colors duration-500"
                 style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', color: m.text }}
               >
-                Qué ofrezco
+                Qué te puedo ofrecer?
               </h2>
             </div>
 
