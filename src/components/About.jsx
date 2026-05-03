@@ -77,17 +77,14 @@ export default function About({ darkMode }) {
       Contáctame
     </a>
 
-    <a
-      href="#proyectos"
-      onClick={e => {
-        e.preventDefault()
-        document.querySelector('#proyectos')?.scrollIntoView({ behavior: 'smooth' })
-      }}
-      className="px-6 py-3 rounded-xl border text-sm font-medium transition-all duration-200 backdrop-blur-md"
-      style={{ background: m.btnGlass, borderColor: m.btnBorder, color: m.btnText }}
-    >
-      Ver proyectos
-    </a>
+    <button
+  type="button"
+  onClick={() => navigate('/proyectos')}
+  className="px-6 py-3 rounded-xl border text-sm font-medium transition-all duration-200 backdrop-blur-md cursor-pointer"
+  style={{ background: m.btnGlass, borderColor: m.btnBorder, color: m.btnText }}
+>
+  Ver proyectos
+</button>
   </div>
 </div>
 
