@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 import { useEffect, useRef, useState } from 'react'
 import { useScroll, useTransform, motion } from 'framer-motion'
 import Ballpit from './Ballpit'
@@ -13,6 +15,7 @@ export default function Hero({ darkMode }) {
   const [deleting, setDeleting] = useState(false)
   const timeout = useRef(null)
   const containerRef = useRef(null)
+  const navigate = useNavigate()
 
   const { scrollY } = useScroll()
 const rotate = useTransform(scrollY, [0, 600], [40, 0])
@@ -127,11 +130,13 @@ const translateY = useTransform(scrollY, [0, 600], [120, -60])
   Construyo páginas web modernas, rápidas y adaptadas a cualquier dispositivo.
 </p>
             <div className="flex items-center gap-4">
-              <a href="#proyectos"
-                onClick={e => { e.preventDefault(); document.querySelector('#proyectos')?.scrollIntoView({ behavior: 'smooth' }) }}
-                className="px-7 py-3.5 rounded-xl bg-[#12c352] text-[#080808] font-semibold text-sm hover:bg-[#0fa844] transition-all duration-200 hover:shadow-[0_0_40px_rgba(18,195,82,0.45)] whitespace-nowrap">
-                Ver proyectos →
-              </a>
+              <button
+  type="button"
+  onClick={() => navigate('/proyectos')}
+  className="px-7 py-3.5 rounded-xl bg-[#12c352] text-[#080808] font-semibold text-sm hover:bg-[#0fa844] transition-all duration-200 hover:shadow-[0_0_40px_rgba(18,195,82,0.45)] whitespace-nowrap"
+>
+  Ver proyectos →
+</button>
               <a href="#sobre-mi"
                 onClick={e => { e.preventDefault(); document.querySelector('#sobre-mi')?.scrollIntoView({ behavior: 'smooth' }) }}
                 className="px-7 py-3.5 rounded-xl border font-medium text-sm transition-all duration-300 whitespace-nowrap backdrop-blur-md"
