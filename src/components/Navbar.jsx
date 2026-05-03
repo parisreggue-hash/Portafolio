@@ -56,7 +56,7 @@ export default function Navbar({ darkMode, onToggle }) {
           </svg>
           <span className="font-display font-bold text-sm transition-colors duration-300"
             style={{ color: darkMode ? '#ffffff' : '#111111' }}>
-            dev
+            jorg
           </span>
         </a>
 
