@@ -6,17 +6,16 @@ export default function PricingCard({
   imageUrl,
   href = '#contact',
   className = '',
+  darkMode = false,
 }) {
+  const isDark = darkMode
+
   const cardVariants = {
     initial: { scale: 1, y: 0 },
     hover: {
       scale: 1.03,
       y: -5,
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 15,
-      },
+      transition: { type: 'spring', stiffness: 300, damping: 15 },
     },
   }
 
@@ -25,17 +24,29 @@ export default function PricingCard({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative flex h-80 w-full max-w-sm flex-col justify-between overflow-hidden rounded-2xl border bg-card p-6 text-card-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${className}`}
+      className={`group relative flex h-80 w-full max-w-sm flex-col justify-between overflow-hidden rounded-2xl border p-6 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#12c352] focus-visible:ring-offset-2 ${className}`}
+      style={{
+        background: isDark ? 'rgba(255,255,255,0.04)' : '#ffffff',
+        borderColor: isDark ? 'rgba(255,255,255,0.10)' : 'rgba(0,0,0,0.10)',
+      }}
       variants={cardVariants}
       initial="initial"
       whileHover="hover"
       aria-label={`Link to ${title}`}
     >
       <div className="z-10">
-        <h3 className="mb-2 font-serif text-3xl font-medium tracking-tight text-card-foreground">
+        <h3
+          className="mb-2 font-serif text-3xl font-medium tracking-tight"
+          style={{ color: isDark ? '#f5f5f5' : '#111111' }}
+        >
           {title}
         </h3>
-        <p className="max-w-[80%] text-sm text-muted-foreground">{description}</p>
+        <p
+          className="max-w-[80%] text-sm"
+          style={{ color: isDark ? 'rgba(255,255,255,0.72)' : 'rgba(17,17,17,0.72)' }}
+        >
+          {description}
+        </p>
       </div>
 
       <div className="absolute bottom-4 right-4 h-40 w-40">

@@ -87,12 +87,13 @@ export default function Services({ darkMode }) {
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {services.map((s) => (
               <PricingCard
-                key={s.title}
-                title={s.title}
-                description={s.description}
-                imageUrl={s.imageUrl}
-                href={s.href}
-              />
+  key={s.title}
+  title={s.title}
+  description={s.description}
+  imageUrl={s.imageUrl}
+  href={s.href}
+  darkMode={darkMode}
+/> 
             ))}
           </div>
         </div>
