@@ -13,7 +13,7 @@ const getTechs = (darkMode) => [
   },
   { img: 'https://cdn.simpleicons.org/netlify/00C7B7', name: 'Netlify' },
   { img: 'https://cdn.simpleicons.org/html5/E34F26', name: 'HTML5' },
-  { img: '/public/ccs3logopng.png', name: 'CSS3' },
+  { img: '/ccs3logopng.png', name: 'CSS3' },
 ];
 
 export default function LogoLoop({ darkMode }) {
