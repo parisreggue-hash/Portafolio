@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { t } from '../theme'
 
 export default function PricingCard({
   title,
@@ -7,10 +6,7 @@ export default function PricingCard({
   imageUrl,
   href = '#contact',
   className = '',
-  darkMode,
 }) {
-  const m = t(darkMode)
-
   const cardVariants = {
     initial: { scale: 1, y: 0 },
     hover: {
@@ -29,30 +25,17 @@ export default function PricingCard({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative flex h-80 w-full max-w-sm flex-col justify-between overflow-hidden rounded-2xl border p-6 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#12c352] focus-visible:ring-offset-2 ${className}`}
-      style={{
-        background: m.surface,
-        borderColor: m.btnBorder,
-        color: m.text,
-      }}
+      className={`group relative flex h-80 w-full max-w-sm flex-col justify-between overflow-hidden rounded-2xl border bg-card p-6 text-card-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${className}`}
       variants={cardVariants}
       initial="initial"
       whileHover="hover"
       aria-label={`Link to ${title}`}
     >
       <div className="z-10">
-        <h3
-          className="mb-2 font-serif text-3xl font-medium tracking-tight"
-          style={{ color: m.text }}
-        >
+        <h3 className="mb-2 font-serif text-3xl font-medium tracking-tight text-card-foreground">
           {title}
         </h3>
-        <p
-          className="max-w-[80%] text-sm"
-          style={{ color: m.aboutText }}
-        >
-          {description}
-        </p>
+        <p className="max-w-[80%] text-sm text-muted-foreground">{description}</p>
       </div>
 
       <div className="absolute bottom-4 right-4 h-40 w-40">
