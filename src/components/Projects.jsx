@@ -29,12 +29,8 @@ export default function Projects({ darkMode }) {
             <span className="text-[#12c352] text-xs font-medium tracking-[0.2em] uppercase font-body">
               Proyectos
             </span>
-            <span
-              className="text-xs font-body transition-colors duration-500"
-              style={{ color: m.textFaint }}
-            >
-              Selección visual
-            </span>
+            
+          
           </div>
 
         <Skiper52 darkMode={darkMode} />

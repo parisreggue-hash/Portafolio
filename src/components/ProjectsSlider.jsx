@@ -1,72 +1,73 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
+import BlurText from "./BlurText";
 
 const images = [
   {
-    src: "/images/x.com/13.jpeg",
+    src: "/hundersrl.jpeg",
     alt: "Proyecto 1",
     code: "Proyecto 01",
     title: "Hunder SRL",
-    type: "Catálogo industrial",
+    type: "Informativo",
     description:
       "Sitio enfocado en mostrar maquinaria y productos de forma clara, profesional y ordenada.",
   },
   {
-    src: "/images/x.com/32.jpeg",
+    src: "/carritope.jpeg",
     alt: "Proyecto 2",
     code: "Proyecto 02",
-    title: "Tienda Virtual",
+    title: "Carrito de compra",
     type: "E-commerce",
     description:
-      "Diseño pensado para mostrar productos, mejorar la experiencia visual y facilitar la navegación.",
+      "Diseñado para agrupar todas las compras",
   },
   {
-    src: "/images/x.com/20.jpeg",
+    src: "/hundermaquinaxd.jpeg",
     alt: "Proyecto 3",
     code: "Proyecto 03",
-    title: "Landing Comercial",
-    type: "Landing page",
+    title: "Hunder SRL",
+    type: "Catálogo Industrial",
     description:
       "Página enfocada en presentar un servicio de forma atractiva, directa y moderna.",
   },
   {
-    src: "/images/x.com/21.jpeg",
+    src: "/deschunder.jpeg",
     alt: "Proyecto 4",
     code: "Proyecto 04",
-    title: "Portafolio Personal",
-    type: "Portfolio",
+    title: "About me",
+    type: "Muestra información acerca de Hunder SRL",
     description:
       "Sitio diseñado para mostrar habilidades, proyectos y una identidad visual más marcada.",
   },
   {
-    src: "/images/x.com/19.jpeg",
+    src: "/miportps.png",
     alt: "Proyecto 5",
     code: "Proyecto 05",
-    title: "Web Corporativa",
-    type: "Sitio empresarial",
+    title: "Mi portafolio",
+    type: "Página propia",
     description:
-      "Página profesional para transmitir confianza, presentar servicios y reforzar presencia digital.",
+      "Página diseñada para demostrar habilidades",
   },
   {
-    src: "/images/x.com/1.jpeg",
+    src: "/bolitas.png",
     alt: "Proyecto 6",
     code: "Proyecto 06",
-    title: "Catálogo de Productos",
-    type: "Catálogo web",
+    title: "Mi portafolio",
+    type: "Página propia",
     description:
-      "Diseño orientado a organizar productos y facilitar una presentación visual limpia y efectiva.",
+      "Página diseñada para demostrar habilidades",
   },
   {
-    src: "/images/x.com/2.jpeg",
+    src: "/catalogoderopape.jpeg",
     alt: "Proyecto 7",
     code: "Proyecto 07",
-    title: "Página Informativa",
-    type: "Informativa",
+    title: "Catálogo casual",
+    type: "Informativo",
     description:
-      "Web rápida y clara para comunicar información importante con una estructura sencilla.",
+      "Permite visualizar los productos de tu negocio.",
   },
   {
-    src: "/images/x.com/3.jpeg",
+    src: "/jorgito.jpeg",
     alt: "Proyecto 8",
     code: "Proyecto 08",
     title: "Negocio Local",
@@ -110,32 +111,50 @@ const HoverExpand_001 = ({ images, darkMode }) => {
       transition={{ duration: 0.8, ease: "easeInOut" }}
       className="relative w-full max-w-6xl px-5"
     >
-      <div className="mb-10 px-4 text-center">
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#12c352]">
-          Proyectos
-        </p>
+      <div className="mb-10 px-4 text-center min-h-[170px]">
+  <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#12c352]">
+    Proyectos
+  </p>
 
-        <h2
-          className="mt-3 text-3xl font-black md:text-5xl"
-          style={{ color: colors.title }}
-        >
-          {activeProject.title}
-        </h2>
+  <h2
+    className="mt-3 text-3xl font-black md:text-5xl"
+    style={{ color: colors.title }}
+  >
+    <BlurText
+      key={`title-${activeImage}`}
+      text={activeProject.title}
+      delay={18}
+      animateBy="letters"
+      direction="top"
+    />
+  </h2>
 
-        <p
-          className="mt-3 text-sm uppercase tracking-[0.15em] md:text-base"
-          style={{ color: colors.muted }}
-        >
-          {activeProject.type}
-        </p>
+  <p
+    className="mt-3 text-sm uppercase tracking-[0.15em] md:text-base"
+    style={{ color: colors.muted }}
+  >
+    <BlurText
+      key={`type-${activeImage}`}
+      text={activeProject.type}
+      delay={14}
+      animateBy="letters"
+      direction="top"
+    />
+  </p>
 
-        <p
-          className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed md:text-base"
-          style={{ color: colors.text }}
-        >
-          {activeProject.description}
-        </p>
-      </div>
+  <p
+    className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed md:text-base"
+    style={{ color: colors.text }}
+  >
+    <BlurText
+      key={`desc-${activeImage}`}
+      text={activeProject.description}
+      delay={6}
+      animateBy="words"
+      direction="top"
+    />
+  </p>
+</div>
 
       <motion.div
         initial={{ opacity: 0 }}
@@ -144,7 +163,7 @@ const HoverExpand_001 = ({ images, darkMode }) => {
         className="w-full"
       >
         <div className="flex w-full items-center justify-center gap-1">
-          {images.map((image, index) => (
+          {images.slice(0, 7).map((image, index) => (
             <motion.div
               key={index}
               className="relative cursor-pointer overflow-hidden rounded-3xl"
