@@ -1,5 +1,4 @@
 import SplitText from './SplitText'
-import TiltedCard from './TiltedCard'
 import LogoLoop from './LogoLoop'
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -14,97 +13,114 @@ export default function About({ darkMode }) {
     const obs = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) e.target.classList.add('visible')
     }, { threshold: 0.1 })
+
     if (ref.current) obs.observe(ref.current)
     return () => obs.disconnect()
   }, [])
 
   return (
-    <section id="sobre-mi" className="relative py-32 overflow-hidden transition-colors duration-500">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="section-reveal" ref={ref}>
-          <span className="text-[#12c352] text-xs font-medium tracking-[0.2em] uppercase font-body">Sobre mí</span>
-
-          <div className="grid lg:grid-cols-2 gap-16 mt-10 items-center">
-
-            {/* Left */}
-            <div>
-  <h2
-    className="font-display font-black leading-[0.9] mb-8 transition-colors duration-500 text-left"
-    style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: m.text }}
-  >
-    Desarrollador<br />
-    <span style={{ color: '#12c352' }}>obsesionado por los</span><br />
-    detalles extremos.
-  </h2>
-
-<SplitText
-  text="Te saluda un amante de la música y lo llamativo. Estoy aprendiendo a crear páginas web, espero poder aprender juntos. Me enfoco en que tu página sea distinta y única, con un diseño brutal."
-  tag="p"
-  textAlign="left"
-  className="w-full font-body text-base leading-relaxed mb-4 transition-colors duration-500 text-left"
-  delay={60}
-  duration={1.4}
-  ease="power2.out"
-  splitType="words"
-  from={{ opacity: 0, y: 16 }}
-  to={{ opacity: 1, y: 0 }}
-  threshold={0.1}
-  rootMargin="-80px"
-  style={{ color: m.aboutText }}
-/>
-
-<SplitText
-  text="Estoy aquí para ayudarte y hacer notar tu página web. Sigo aprendiendo cada día más y deseando aplicar lo aprendido en proyectos reales, desde lo más básico hasta lo más complejo."
-  tag="p"
-  textAlign="left"
-  className="w-full font-body text-base leading-relaxed transition-colors duration-500 text-left"
-  delay={60}
-  duration={1.4}
-  ease="power2.out"
-  splitType="words"
-  from={{ opacity: 0, y: 16 }}
-  to={{ opacity: 1, y: 0 }}
-  threshold={0.1}
-  rootMargin="-80px"
-  style={{ color: m.aboutText }}
-/>
-
-  <div className="flex items-center gap-4 mt-10">
-    <a
-      onClick={() => navigate('/contacto')}
-      className="px-6 py-3 rounded-xl bg-[#12c352] text-[#080808] font-semibold text-sm hover:bg-[#0fa844] transition-all duration-200 cursor-pointer"
+    <section
+      id="about"
+      ref={ref}
+      className="w-full px-6 md:px-10 lg:px-16 py-20 md:py-24"
     >
-      Contáctame
-    </a>
+      <div className="max-w-4xl mx-auto">
+        <div className="flex flex-col gap-6 md:gap-8">
 
-    <button
-  type="button"
-  onClick={() => navigate('/proyectos')}
-  className="px-6 py-3 rounded-xl border text-sm font-medium transition-all duration-200 backdrop-blur-md cursor-pointer"
-  style={{ background: m.btnGlass, borderColor: m.btnBorder, color: m.btnText }}
->
-  Ver proyectos
-</button>
-  </div>
-</div>
+          <span
+            className="inline-flex w-fit items-center px-3 py-1 rounded-full text-xs font-medium tracking-[0.12em] uppercase"
+            style={{
+              background: m.accentSoft,
+              color: m.accent,
+              border: `1px solid ${darkMode ? 'rgba(131,160,201,0.18)' : 'rgba(74,111,160,0.18)'}`,
+            }}
+          >
+            ¿Quién soy?
+          </span>
 
-            {/* Right — foto */}
-            <div className="flex justify-center mt-8 lg:mt-0">
-              <TiltedCard
-                imageSrc="/jorgito.jpeg"
-                altText="Mi foto"
-                captionText="Jorgito CT"
-                className="w-64 h-80"
-              />
-            </div>
+          <SplitText
+            className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight"
+            style={{ color: m.text }}
+          >
+            Desarrollo interfaces limpias, rápidas y con intención.
+          </SplitText>
 
+          <div className="flex flex-col gap-5">
+            <p
+              className="text-base md:text-lg leading-8 max-w-3xl"
+              style={{ color: m.aboutText }}
+            >
+              Soy desarrollador frontend y disfruto construir experiencias web que se sientan
+              claras, fluidas y bien cuidadas. Me interesa combinar diseño, rendimiento y
+              atención al detalle para crear interfaces que no solo se vean bien, sino que
+              también se sientan bien al usarlas.
+            </p>
+
+            <p
+              className="text-base md:text-lg leading-8 max-w-3xl"
+              style={{ color: m.aboutText }}
+            >
+              Trabajo principalmente con React, JavaScript y herramientas modernas del ecosistema
+              frontend. Me gusta iterar, pulir microdetalles visuales y convertir ideas en
+              productos funcionales con una estética sólida y una experiencia consistente.
+            </p>
           </div>
 
-          {/* LogoLoop — FUERA del grid */}
-          <div className="mt-20">
-            <LogoLoop darkMode={darkMode} />
+          <div className="flex flex-wrap gap-3 pt-1">
+            {[
+              'React',
+              'JavaScript',
+              'UI / UX',
+              'Animaciones',
+              'Componentes reutilizables',
+              'Frontend moderno',
+            ].map((item) => (
+              <span
+                key={item}
+                className="px-4 py-2 rounded-full text-sm font-medium"
+                style={{
+                  background: m.surface2,
+                  border: `1px solid ${m.border}`,
+                  color: m.text,
+                  backdropFilter: darkMode ? 'blur(10px)' : 'none',
+                  WebkitBackdropFilter: darkMode ? 'blur(10px)' : 'none',
+                }}
+              >
+                {item}
+              </span>
+            ))}
           </div>
 
+          <div className="flex gap-3 flex-wrap pt-2">
+            <button
+              onClick={() => navigate('/contacto')}
+              className="px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 cursor-pointer"
+              style={{
+                background: m.accent,
+                color: darkMode ? '#0b0b0b' : '#f4efe7',
+              }}
+            >
+              Contáctame
+            </button>
+
+            <button
+              onClick={() => navigate('/proyectos')}
+              className="px-6 py-3 rounded-xl text-sm font-medium transition-all duration-200 cursor-pointer"
+              style={{
+                background: m.btnGlass,
+                border: `1px solid ${m.btnBorder}`,
+                color: m.btnText,
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+              }}
+            >
+              Ver proyectos
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-14 md:mt-16">
+          <LogoLoop darkMode={darkMode} />
         </div>
       </div>
     </section>
