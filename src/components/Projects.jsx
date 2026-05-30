@@ -8,7 +8,7 @@ const project = {
     'Un portafolio desarrollado para mostrar mi trabajo, mis habilidades y mi enfoque en interfaces modernas, rendimiento y detalles visuales bien cuidados.',
   stack: ['React', 'JavaScript', 'Tailwind CSS', 'Framer Motion', 'Vite'],
   liveUrl: 'https://dev-jorg.vercel.app/',
-  previewImage: 'public/casalander.png',
+  previewImage: '/casalander.png',
 }
 
 export default function Projects({ darkMode }) {
